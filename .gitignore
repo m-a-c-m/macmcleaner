@@ -1,0 +1,40 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+dist-ssr/
+
+# Rust build artifacts
+src-tauri/target/
+
+# Distribution files (upload to GitHub Releases, not tracked in repo)
+*.msi
+*.nsis
+
+# Environment
+*.local
+.env
+.env.local
+
+# Claude Code
+.claude/
+
+# Editor
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# OS
+Thumbs.db

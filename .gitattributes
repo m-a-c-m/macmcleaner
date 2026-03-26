@@ -1,0 +1,9 @@
+# Normalize line endings
+* text=auto eol=lf
+
+# Force binary for images and compiled files
+*.png binary
+*.ico binary
+*.icns binary
+*.msi binary
+*.exe binary
