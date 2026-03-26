@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #050508;
+    /* Ambient neon glow — cyan top, magenta corner */
+    background-image:
+      radial-gradient(ellipse 90% 55% at 50% -5%, rgba(0, 212, 255, 0.08) 0%, transparent 100%),
+      radial-gradient(ellipse 50% 45% at 95% 105%, rgba(201, 64, 240, 0.06) 0%, transparent 100%);
+    color: #f0f0ff;
+    overflow: hidden;
+    height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  #root {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Custom scrollbar — cyan tinted */
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(0, 212, 255, 0.15); border-radius: 99px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(0, 212, 255, 0.4); }
+
+  /* Allow text selection only in specific areas */
+  .selectable { user-select: text; -webkit-user-select: text; }
+}
+
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #00d4ff 0%, #c940f0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, #00d4ff, #c940f0);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    opacity: 0.75;
+  }
+
+  .glass {
+    background: rgba(17, 17, 24, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Neon cyan text glow */
+  .text-neon-cyan {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.65), 0 0 25px rgba(0, 212, 255, 0.25);
+  }
+
+  /* Thin neon divider line */
+  .neon-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 212, 255, 0.35) 50%, transparent 100%);
+    flex-shrink: 0;
+  }
+}
